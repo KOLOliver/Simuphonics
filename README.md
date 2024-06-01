@@ -1,4 +1,3 @@
-How to Run Simuphonics
 In order to run Simuphonics, the user must download all necessary libraries along with a compatible version of Python. 
 These libraries include: Numpy, Tensorflow, Scipy, and Kivy. All other libraries utilized come with Python itself. 
 Afterwards, the user must download the two scripts: “DCGANMODEL.py” and “DCGAN.py.” 
