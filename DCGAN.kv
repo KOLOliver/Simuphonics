@@ -1,0 +1,428 @@
+<MenuScreen>:
+    startButton: start_button
+    creditsButton: credits_button
+    settingsButton: settings_button
+    RelativeLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: "testbg6.jpg"
+            Color: 
+                rgba: 0, 0, 0, 0.6    
+            Rectangle:
+                pos: self.center_x-350, 0
+                size: 700, self.height
+                
+        Label:
+            font_size: 100
+            size_hint: 0.5, 0.2
+            bold: True
+            text: "Simuphonics"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        
+        Label:
+            font_size: 20
+            size_hint: 0.1, 0.05
+            text: "Version: 1.0.0"
+            center_x: root.width - 130
+            top: 100
+        
+ 
+        Button:
+            id: start_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Start"
+                center: self.parent.center
+
+        Button: 
+            id: credits_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            center_x: start_button.center_x
+            center_y: start_button.center_y - 100
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Credits"
+                center: self.parent.center
+
+        Button: 
+            id: settings_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            center_x: start_button.center_x
+            center_y: credits_button.center_y - 100
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Settings"
+                center: self.parent.center
+
+        Button: 
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            center_x: start_button.center_x
+            center_y: settings_button.center_y - 100
+            size_hint: 0.25, 0.06
+            on_release: app.stop()
+            Label:
+                font_size: 20
+                text: "Exit"
+                center: self.parent.center        
+
+<SettingsScreen>:
+    returnButton: return_button
+    validityTextOutfile: validity_text_outfile
+    validityTextEpochs: validity_text_epochs
+    validityTextSampling: validity_text_sampling
+    statusTextVL: status_text_VL
+    inputRelativePath: input_path
+    inputEpochs: input_epochs
+    inputSampling: input_sampling
+    toggleVerboseLogging: toggle_VL
+
+    RelativeLayout:
+        canvas: 
+            Color: 
+                rgb: 76/255, 53/255, 73/255
+            Rectangle:
+                pos: 0, 0
+                size: self.width, self.height 
+        Label:
+            font_size: 100
+            size_hint: 0.5, 0.2
+            bold: True
+            text: 'Settings'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+        Button:
+            id: return_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Return to Menu"
+                center: self.parent.center
+
+        Label:
+            font_size: 30
+            text: "Relative Path for Output Location"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.7}
+            size_hint: 0.15, 0.2
+
+        TextInput:
+            id: input_path
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            size_hint: 0.3, 0.03
+        
+        Label:
+            id: validity_text_outfile
+            font_size: 30
+            size_hint: 0.5, 0.2
+            pos_hint: {'center_x': 0.8, 'center_y': 0.7}
+        
+        Label:
+            font_size: 30
+            text: "Number of Epochs"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.6}
+            size_hint: 0.15, 0.2
+        
+        TextInput:
+            id: input_epochs
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            size_hint: 0.3, 0.03
+        
+        Label:
+            id: validity_text_epochs
+            font_size: 30
+            size_hint: 0.5, 0.2
+            pos_hint: {'center_x': 0.8, 'center_y': 0.6}
+
+        Label:
+            font_size: 30
+            text: "Number of Iterations Between Samples"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.5}
+            size_hint: 0.15, 0.2
+        
+        TextInput:
+            id: input_sampling
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: 0.3, 0.03
+        
+        Label:
+            id: validity_text_sampling
+            font_size: 30
+            size_hint: 0.5, 0.2
+            pos_hint: {'center_x': 0.8, 'center_y': 0.5}
+
+        Label:
+            font_size: 30
+            text: "Toggle Verbose Logging"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.4}
+            size_hint: 0.15, 0.2
+        
+        CheckBox:
+            id: toggle_VL
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            size_hint: 0.3, 0.03
+        
+        Label:
+            id: status_text_VL
+            font_size: 30
+            size_hint: 0.5, 0.2
+            pos_hint: {'center_x': 0.8, 'center_y': 0.4}
+
+        
+
+<CreditsScreen>:
+    backButton: back_button
+    titleLabel: title_label
+    RelativeLayout:
+        canvas: 
+            Color: 
+                rgb: 76/255, 53/255, 73/255
+            Rectangle:
+                pos: 0, 0
+                size: self.width, self.height 
+        
+        Label:
+            id: title_label
+            font_size: 100
+            size_hint: 0.5, 0.2
+            bold: True
+            text: 'Credits'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        
+        Button:
+            id: back_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Return to Menu"
+                center: self.parent.center
+        Label:
+            pos_hint: {'center_x': 0.5}
+            center_y: back_button.center_y - 100
+            size_hint: 0.3, 0.1
+            font_size: 30
+            text: "Application and Machine Learning Model made by Oliver Li\n\nYilmaz Computer Systems Lab 2024"
+
+<GenerationInstructionsScreen>:
+    backButton: back_button
+    continueButton: continue_button
+    RelativeLayout:
+        canvas: 
+            Color: 
+                rgb: 76/255, 53/255, 73/255
+            Rectangle:
+                pos: 0, 0
+                size: self.width, self.height 
+        
+        Label:
+            font_size: 60
+            size_hint: 0.5, 0.2
+            bold: True
+            text: "Generate Audio With Simuphonics"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+        Label:
+            font_size: 40
+            size_hint: 0.5, 0.1
+            bold: True
+            text: "A Brief Guide"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+        
+        Button:
+            id: back_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Return to Menu"
+                center: self.parent.center
+        Label:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            size_hint: 0.25, 0.1
+            font_size: 30
+            text: "Simuphonics uses a DCGAN model pioneered by WaveGAN to generate audio. This model works by taking a sample audio \nas reference and using it to train a discriminator network and a generator network. At first, the generator will generate random noise.\nIt is the discriminator's job to first differentiate random noise with the sample audio and then to tell the generator to fix itself.\nRepeating this process thousands of times will eventually yield raw audio that is similar to the sample.\n\nInstructions:"
+        Label:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.46}
+            size_hint: 0.25, 0.1
+            font_size: 30
+            text: "1. Drag and drop your selected .wav file into the DCGAN folder. The DCGAN folder is likely within your downloads folder.\n2. Input the name of the .wav file into the text box.\n3. Click off of the text box and then press the \"Start Generating!\" Button"
+        Label:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            size_hint: 0.25, 0.1
+            font_size: 30
+            text: "Note: Generated dogbarks will be automatically stored in the same folder of the orginal sample.\nIf you wish for the generated audio to be put in a seperate folder, create a seperate folder within the DCGAN folder and put the sample in it.\nThen, when entering the file name, put: {folder name}/{file name}. Remember to exclude the .wav."
+        Button:
+            id: continue_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Continue to demo"
+                center: self.parent.center
+
+<DemoScreen>:
+    backButton: back_button
+    continueButton: continue_button
+    playDogBarkButton: dog_bark_button
+    playGeneratedButton: generated_bark_button
+    dogBarkPB: dog_bark_PB
+    generatedPB: generated_PB
+
+    RelativeLayout:
+        canvas: 
+            Color: 
+                rgb: 76/255, 53/255, 73/255
+            Rectangle:
+                pos: 0, 0
+                size: self.width, self.height 
+        
+        Label:
+            font_size: 60
+            size_hint: 0.5, 0.2
+            bold: True
+            text: "Demo: Dog Barks"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+        Button:
+            id: back_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Return to Instructions"
+                center: self.parent.center
+        
+        Button:
+            id: continue_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5}
+            center_y: back_button.center_y - 75
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Continue to Generation"
+                center: self.parent.center
+
+        Label: 
+            font_size: 30
+            size_hint: 0.25, 0.1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.56}
+            text: "Clicking the left button will play the sample sound used to train the model.\nClicking the right button will play generated sample from the model after 3500 epochs."
+
+        GridLayout:
+            padding: 5, 5
+            spacing: 5, 5
+            size_hint: 1, 0.3
+            cols: 2
+            rows: 2
+            
+            MDProgressBar:
+                id: dog_bark_PB
+                color: 245/255, 39/255, 102/255
+                size_hint: 0.1, 0.5
+                min: 0
+                value: self.value
+
+            MDProgressBar:
+                id: generated_PB
+                color: 245/255, 39/255, 102/255
+                size_hint: 0.1, 0.5
+                min: 0
+                value: self.value
+
+            Button:
+                id: dog_bark_button
+                background_color: (245/255, 39/255, 102/255, 0.8)
+                Label:
+                    font_size: 20
+                    text: "Play Original Sample"
+                    center: self.parent.center
+
+            Button: 
+                id: generated_bark_button
+                background_color: (252/255, 150/255, 181/255, 0.8)
+                Label:
+                    font_size: 20
+                    text: "Play Simuphonics Generated Sample"
+                    center: self.parent.center
+                
+<GenerationScreen>:
+    backButton: back_button
+    stopButton: stop_button
+    startButton: start_button
+    inputFileName: text_input
+    validityText: valid_text
+    statusText: status_text
+
+    RelativeLayout:
+        canvas: 
+            Color: 
+                rgb: 76/255, 53/255, 73/255
+            Rectangle:
+                pos: 0, 0
+                size: self.width, self.height 
+        Label:
+            font_size: 60
+            size_hint: 0.5, 0.2
+            bold: True
+            text: "Audio Creation"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        
+        Button:
+            id: back_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Return to Demo"
+                center: self.parent.center
+
+        TextInput:
+            id: text_input
+            pos_hint: {'center_x': 0.475, 'center_y': 0.70}
+            size_hint: 0.2, 0.03
+        Label:
+            pos_hint: {'center_x': 0.6, 'center_y': 0.70}
+            size_hint: 0.08, 0.03
+            text: ".wav"
+        Label:
+            id: valid_text
+            pos_hint: {'center_x': 0.5, 'center_y': 0.60}
+            size_hint: 0.25, 0.1
+            font_size: 40 
+        Button:
+            id: start_button
+            background_color: (245/255, 40/255, 145/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 20
+                text: "Start Generating!"
+                center: self.parent.center
+        Button:
+            id: stop_button
+            background_color: (255/255, 0/255, 0/255, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            size_hint: 0.25, 0.06
+            Label:
+                font_size: 30
+                text: "STOP"
+                center: self.parent.center
+        Label:
+            id: status_text
+            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+            size_hint: 0.25, 0.1
+            font_size: 30 
